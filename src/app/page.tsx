@@ -13,8 +13,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden">
         <LightningAnimation />
-        {/* Background glow effects */}
-        <div className="absolute inset-0 bg-mesh opacity-50" />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}

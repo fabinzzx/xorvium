@@ -21,7 +21,7 @@ export const Navbar = () => {
       opacity: 0,
       y: "-100%",
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeInOut"
       }
     },
@@ -29,7 +29,7 @@ export const Navbar = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
@@ -37,15 +37,15 @@ export const Navbar = () => {
 
   const linkVariants: any = {
     initial: {
-      y: 20,
+      y: 10,
       opacity: 0
     },
     animate: (i: number) => ({
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.3 + i * 0.1,
-        duration: 0.5,
+        delay: 0.1 + i * 0.05,
+        duration: 0.3,
         ease: "easeOut"
       }
     })
@@ -82,7 +82,7 @@ export const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X size={32} /> : <Menu size={32} />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </motion.nav>
 
@@ -94,13 +94,9 @@ export const Navbar = () => {
             initial="closed"
             animate="opened"
             exit="closed"
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl md:hidden flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-black/90 backdrop-blur-xl md:hidden flex flex-col items-center justify-center"
           >
-            {/* Background decorative elements */}
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full pointer-events-none" />
-
-            <div className="flex flex-col items-center gap-10 relative z-10">
+            <div className="flex flex-col items-center gap-8 relative z-10">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -112,23 +108,13 @@ export const Navbar = () => {
                   <Link 
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-4xl font-black tracking-tighter hover:text-primary transition-all duration-300 flex items-center gap-4 group"
+                    className="text-xl font-medium tracking-widest text-gray-300 hover:text-primary transition-all duration-300 uppercase"
                   >
-                    <span className="text-xs font-mono text-gray-500 group-hover:text-primary">0{i + 1}</span>
-                    {link.name.toUpperCase()}
+                    {link.name}
                   </Link>
                 </motion.div>
               ))}
             </div>
-            
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="absolute bottom-12 text-xs tracking-[0.3em] text-gray-600 uppercase font-bold"
-            >
-              Architecting the Future
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
