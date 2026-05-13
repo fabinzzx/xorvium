@@ -16,7 +16,7 @@ const navLinks = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menuVariants = {
+  const menuVariants: any = {
     closed: {
       opacity: 0,
       y: "-100%",
@@ -35,7 +35,7 @@ export const Navbar = () => {
     }
   };
 
-  const linkVariants = {
+  const linkVariants: any = {
     initial: {
       y: 20,
       opacity: 0
