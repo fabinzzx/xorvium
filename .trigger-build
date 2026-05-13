@@ -1,0 +1,6 @@
+Triggering a completely fresh Vercel build with all fixes applied.
+Date: 2026-05-13
+Fixes: 
+- Removed platform-specific SWC packages.
+- Removed Windows-only lightningcss packages.
+- Ignored package-lock.json.
